@@ -1,0 +1,30 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "CLI app to make basic HTML site with team member info",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/errotleugim/team-profile-generator.git"
+  },
+  "keywords": [
+    "cli",
+    "node",
+    "inquirer"
+  ],
+  "author": "MAT",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/errotleugim/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/errotleugim/team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.0"
+  }
+}
