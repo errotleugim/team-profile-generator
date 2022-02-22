@@ -5,22 +5,10 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-
+teamArray = []
 
 function maketeam() {
     inquirer.prompt([
-    {
-        message: "What's the member's name?",
-        name: "name"
-    },
-    {
-        message: "Enter team member id",
-        name: "id"
-    },
-    {
-        message: "Enter team member email address",
-        name: "email"
-    },
     {
         type: "list",
         message: "select role",
@@ -52,26 +40,72 @@ function maketeam() {
 
 function addEngineer(){
     inquirer.prompt ([
-       {
+        {
+            message: "What's the member's name?",
+            name: "name"
+        },
+        {
+            message: "Enter team member id",
+            name: "id"
+        },
+        {
+            message: "Enter team member email address",
+            name: "email"
+        },
+        {
            type: "input",
            name: "github",
            message: "What is the engineer's GitHub username?"
-         }
-    
-       ])
+        }
+         
+         ])
+         .then(answers => {
+             const engineer = new Engineer(answers.github, answers.email, answers.name, answers.id);
+             teamArray.push(engineer)
+             console.log(teamArray)
+         })
 }
 function addManager(){
     inquirer.prompt ([
-       {
+        {
+            message: "What's the member's name?",
+            name: "name"
+        },
+        {
+            message: "Enter team member id",
+            name: "id"
+        },
+        {
+            message: "Enter team member email address",
+            name: "email"
+        },
+        {
            type: "input",
-           name: "managerOfficeNumber",
+           name: "officenumber",
            message: "What is the manager's office number?"
          }
     
        ])
+       .then(answers => {
+           const manager = new Manager(answers.email, answers.name, answers.id, answers.officenumber);
+           teamArray.push(manager);
+           console.log(teamArray);
+       })
 }
  function addIntern(){
      inquirer.prompt ([
+        {
+            message: "What's the member's name?",
+            name: "name"
+        },
+        {
+            message: "Enter team member id",
+            name: "id"
+        },
+        {
+            message: "Enter team member email address",
+            name: "email"
+        },
         {
             type: "input",
             name: "school",
@@ -79,6 +113,12 @@ function addManager(){
           }
      
         ])
-}
+        .then(answers => {
+            const intern = new Intern(answers.email, answers.name, answers.id, answers.school);
+            teamArray.push(intern);
+            console.log(teamArray);
+        })
+
+    }
 
 maketeam();
