@@ -7,6 +7,27 @@ const Manager = require("./lib/Manager");
 
 teamArray = []
 
+function addmembers() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Do you want to add more members?",
+            choices: ["Yes", "No"],
+            name: "members"
+        }
+    ])
+    .then(function(userinput){
+        switch(userinput.members) {
+            case "Yes":
+                maketeam();
+                break;
+            case "No":
+                console.log("Team done");
+                break;
+        }
+    
+    })
+}
 function maketeam() {
     inquirer.prompt([
     {
@@ -63,6 +84,7 @@ function addEngineer(){
              const engineer = new Engineer(answers.github, answers.email, answers.name, answers.id);
              teamArray.push(engineer)
              console.log(teamArray)
+             addmembers();
          })
 }
 function addManager(){
@@ -90,6 +112,7 @@ function addManager(){
            const manager = new Manager(answers.email, answers.name, answers.id, answers.officenumber);
            teamArray.push(manager);
            console.log(teamArray);
+           addmembers();
        })
 }
  function addIntern(){
@@ -117,8 +140,9 @@ function addManager(){
             const intern = new Intern(answers.email, answers.name, answers.id, answers.school);
             teamArray.push(intern);
             console.log(teamArray);
+            addmembers();
         })
-
+        
     }
 
 maketeam();
