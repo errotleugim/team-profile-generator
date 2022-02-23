@@ -15,7 +15,7 @@ function maketeam() {
     inquirer.prompt([
     {
         type: "list",
-        message: "select role",
+        message: "Creating a team member, what role will this one have?",
         choices: [
             "Engineer",
             "Intern",
