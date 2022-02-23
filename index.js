@@ -151,7 +151,7 @@ function finishTeam() {
 
 function finishHtml(objects) {   
 
-        fs.appendFile("./dist/team.html", generateHTML(objects), function (err) {
+        fs.writeFile("./dist/team.html", generateHTML(objects), function (err) {
             if (err) {
                 console.log(err);
             };
