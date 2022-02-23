@@ -34,6 +34,7 @@ This project isn't maintained or updated.
 
 ## Tests
 jest
+[Walkthrough](https://github.com/errotleugim/team-profile-generator/blob/main/testing-video.mp4)
 
 ## License
 [Unlicense](https://choosealicense.com/licenses/unlicense/)
