@@ -13,7 +13,14 @@
   8. [E-mail](#email)
 
 ## Description
-This is a CLI utility to generate an HTML site with basic information about employees for a given project 
+This is a CLI utility to generate an HTML site with basic information about employees for a given project.
+
+
+...
+
+
+[Walkthrough](https://github.com/errotleugim/team-profile-generator/blob/main/teamprofilevideo.mp4)
+![Screenshot](https://raw.githubusercontent.com/errotleugim/team-profile-generator/main/teamprofile-screenshot.png)
 
 ## Installation
 Download repo, install inquirer and it should work
