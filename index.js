@@ -63,7 +63,7 @@ function addEngineer(){
          
          ])
          .then(answers => {
-             const engineer = new Engineer(answers.github, answers.email, answers.name, answers.id);
+             const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
              teamArray.push(engineer)
             genEngineer(engineer);
              finishTeam();
@@ -91,7 +91,7 @@ function addManager(){
     
        ])
        .then(answers => {
-           const manager = new Manager(answers.email, answers.name, answers.id, answers.officenumber);
+           const manager = new Manager(answers.name, answers.id, answers.email, answers.officenumber);
            teamArray.push(manager);
            genManager(manager);
            finishTeam();
@@ -119,7 +119,7 @@ function addIntern(){
      
         ])
         .then(answers => {
-            const intern = new Intern(answers.email, answers.name, answers.id, answers.school);
+            const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
             teamArray.push(intern);
             genIntern(intern);
             finishTeam();
@@ -151,7 +151,7 @@ function finishTeam() {
 
 function finishHtml(objects) {   
 
-        fs.appendFile("./output/team.html", generateHTML(objects), function (err) {
+        fs.appendFile("./dist/team.html", generateHTML(objects), function (err) {
             if (err) {
                 console.log(err);
             };
