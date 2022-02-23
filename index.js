@@ -4,32 +4,9 @@ const Employee = require("./lib/Employee")
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const teamcreate = require("./src/template.js")
+const teamcreate = require("./src/generateHTML.js")
 
 teamArray = []
-
-function finishTeam() {
-    inquirer.prompt([
-        {
-            type: "list",
-            message: "Do you want to add more members?",
-            choices: ["Yes", "No"],
-            name: "members"
-        }
-    ])
-    .then(function(userinput){
-        switch(userinput.members) {
-            case "Yes":
-                maketeam();
-                break;
-            case "No":
-                finishHtml(teamArray);
-                console.log("Team done");
-                break;
-        }
-    
-    })
-}
 
 function maketeam() {
     inquirer.prompt([
@@ -61,7 +38,6 @@ function maketeam() {
         }
     )
  }
-
 function addEngineer(){
     inquirer.prompt ([
         {
@@ -146,10 +122,31 @@ function addManager(){
             finishTeam();
         })
         
-    }
+}
+function finishTeam() {
+    inquirer.prompt([
+        {
+            type: "list",
+            message: "Do you want to add more members?",
+            choices: ["Yes", "No"],
+            name: "members"
+        }
+    ])
+    .then(function(userinput){
+        switch(userinput.members) {
+            case "Yes":
+                maketeam();
+                break;
+            case "No":
+                finishHtml(teamArray);
+                console.log("Team done");
+                break;
+        }
+    
+    })
+}
 
-
-    const generateHTML = function (objects) {   
+const generateHTML = function (objects) {   
         return`
         <!DOCTYPE html>
         <html lang="en">
@@ -178,9 +175,9 @@ function addManager(){
         </body>
            </html>
         `
-    }
+}
 
-    function finishHtml(objects) {   
+function finishHtml(objects) {   
         // fs.appendFile("./output/team.html", generateHTML(objects), function (err) {
         //     if (err) {
         //         console.log(err);
@@ -188,6 +185,6 @@ function addManager(){
         // });
         // console.log("end");
         console.log(objects);
-    }
+}
 
 maketeam();
